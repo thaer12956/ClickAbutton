@@ -1,0 +1,47 @@
+
+<!DOCTYPE html> 
+<html>
+<head>
+    <title>ClickAButton</title>
+</head>
+<body id="body">
+
+  <h1>Komm und klick mich!</h1>
+  <p>Von Thaer Hassan Faisal Almusawi</p>
+  
+  <button id="clickMe">Klick mich!</button>
+  <p>Deine Punkte: <span id="score">0</span></p>
+<script>
+    let punkte = 0;
+    const farben = ["white", "red", "yellow", "blue", "green"];
+    let farbIndex = 0;
+
+    let button = document.getElementById("clickMe");
+    let scoreAnzeige = document.getElementById("score");
+    let body = document.getElementById("body");
+
+    button.addEventListener("click", function() {
+        punkte = punkte + 1;
+        scoreAnzeige.innerText = punkte;
+
+        farbIndex = (farbIndex + 1) % farben.length;
+        body.style.backgroundColor = farben[farbIndex];
+    });
+</script>
+
+<script>
+    let bild = document.getElementById("sigmaBild");
+    let button2 = document.getElementById("clickMe");
+
+    button2.addEventListener("click", function() {
+        // Wir nutzen die Variable 'punkte' aus dem ersten Skript
+        if (punkte % 10 === 0) {
+            bild.style.display = "block";
+        } else {
+            bild.style.display = "none";
+        }
+    });
+</script>
+
+</body>
+</html>
